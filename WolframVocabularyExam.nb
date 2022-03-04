@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    150353,       2354]
-NotebookOptionsPosition[    149067,       2323]
-NotebookOutlinePosition[    149485,       2340]
-CellTagsIndexPosition[    149442,       2337]
+NotebookDataLength[    153461,       2394]
+NotebookOptionsPosition[    152597,       2369]
+NotebookOutlinePosition[    153015,       2386]
+CellTagsIndexPosition[    152972,       2383]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -121,12 +121,8 @@ Cell[BoxData[{
            "]"}]}], ";", 
          RowBox[{"rec", "=", 
           RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-         RowBox[{"ans", "=", 
-          RowBox[{"Row", "@", 
-           RowBox[{"Table", "[", 
-            RowBox[{"Yellow", ",", "n"}], "]"}]}]}], ";", 
-         RowBox[{"score", "=", 
-          RowBox[{"n", "*", ".5"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Clear", "[", 
+          RowBox[{"ans", ",", "score"}], "]"}], ";", "\[IndentingNewLine]", 
          RowBox[{"grid", "=", "\[IndentingNewLine]", 
           RowBox[{"Grid", "[", "\[IndentingNewLine]", 
            RowBox[{
@@ -226,16 +222,15 @@ Cell[BoxData[{
                 RowBox[{
                  RowBox[{"ans", "=", 
                   RowBox[{
-                   RowBox[{
-                    RowBox[{"Abs", "[", 
+                   RowBox[{"Abs", "[", 
                     RowBox[{"var", "-", "rec"}], "]"}], "/.", 
-                    RowBox[{"{", 
+                   RowBox[{"{", 
                     RowBox[{
                     RowBox[{"0", "\[Rule]", "Green"}], ",", 
                     RowBox[{
                     RowBox[{"1", "/", "2"}], "\[Rule]", "Yellow"}], ",", 
-                    RowBox[{"1", "\[Rule]", "Red"}]}], "}"}]}], "//", 
-                   "Row"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"1", "\[Rule]", "Red"}]}], "}"}]}]}], ";", 
+                 "\[IndentingNewLine]", 
                  RowBox[{"score", "=", 
                   RowBox[{
                    RowBox[{"n", "-", 
@@ -243,6 +238,29 @@ Cell[BoxData[{
                     RowBox[{"Abs", "[", 
                     RowBox[{"var", "-", "rec"}], "]"}]}]}], "//", "N"}]}], 
                  ";", "\[IndentingNewLine]", 
+                 RowBox[{"grid", "=", "\[IndentingNewLine]", 
+                  RowBox[{"MapAt", "[", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Hyperlink", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"\"\<paclet:ref/\>\"", "<>", "#"}], ",", 
+                    RowBox[{"BaseStyle", "\[Rule]", "White"}]}], "]"}], "&"}],
+                     ",", "\[IndentingNewLine]", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{"grid", ",", 
+                    RowBox[{"Background", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"None", ",", "ans"}], "}"}]}]}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Thread", "@", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"Pick", "[", 
+                    RowBox[{
+                    RowBox[{"Range", "@", "n"}], ",", "rec", ",", "1"}], 
+                    "]"}], ",", "1"}], "}"}]}]}], "\[IndentingNewLine]", 
+                   "]"}]}], ";", "\[IndentingNewLine]", 
                  RowBox[{"state", "=", "False"}]}], ",", 
                 "\[IndentingNewLine]", 
                 RowBox[{"Enabled", "\[Rule]", "state"}]}], 
@@ -250,16 +268,31 @@ Cell[BoxData[{
             ",", "\[IndentingNewLine]", 
            RowBox[{"{", "\[IndentingNewLine]", 
             RowBox[{
-             RowBox[{"Dynamic", "@", 
-              RowBox[{"Grid", "@", "\[IndentingNewLine]", 
-               RowBox[{"{", "\[IndentingNewLine]", 
-                RowBox[{
+             RowBox[{"Dynamic", "@", "\[IndentingNewLine]", 
+              RowBox[{"BarChart", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"{", "score", "}"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Axes", "\[Rule]", 
                  RowBox[{"{", 
-                  RowBox[{"\"\<Your Answer:\\t\>\"", ",", "ans"}], "}"}], ",",
-                  "\[IndentingNewLine]", 
+                  RowBox[{"False", ",", "True"}], "}"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"BarOrigin", "\[Rule]", "Left"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"PlotRange", "\[Rule]", 
                  RowBox[{"{", 
-                  RowBox[{"\"\<Your Score:\\t\>\"", ",", "score"}], "}"}]}], 
-                "\[IndentingNewLine]", "}"}]}]}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"0", ",", "n"}], "}"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"PlotLabel", "\[Rule]", "\"\<Your Score\>\""}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"AspectRatio", "\[Rule]", ".1"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"ChartElementFunction", "\[Rule]", 
+                 RowBox[{"ChartElementDataFunction", "[", 
+                  RowBox[{"\"\<GradientScaleRectangle\>\"", ",", 
+                   RowBox[{
+                   "\"\<ColorScheme\>\"", "\[Rule]", 
+                    "\"\<TemperatureMap\>\""}]}], "]"}]}]}], 
+               "\[IndentingNewLine]", "]"}]}], ",", "\[IndentingNewLine]", 
              RowBox[{"Button", "[", "\[IndentingNewLine]", 
               RowBox[{"\"\<Try Again!\>\"", ",", "\[IndentingNewLine]", 
                RowBox[{"config", "[", "]"}]}], "\[IndentingNewLine]", "]"}]}],
@@ -441,39 +474,28 @@ WL-builtin-symbol-like strings as well as their true-false questions.\>\""}],
    3.8548950181448684`*^9}, {3.8548952105395947`*^9, 
    3.8548952665560718`*^9}, {3.8548954752218027`*^9, 3.85489548683927*^9}, {
    3.8548955339639134`*^9, 3.8548955522197046`*^9}, {3.854895643289733*^9, 
-   3.854895661247486*^9}},
- CellLabel->
-  "In[165]:=",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"CloudSave", "[", 
-  RowBox[{"WolframVocabularyExam", ",", 
-   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}]], "Input",
- CellChangeTimes->{{3.854250791909666*^9, 3.854250797001053*^9}, {
-   3.85425087466947*^9, 3.854250897610954*^9}, {3.8542622011024923`*^9, 
-   3.8542622104175324`*^9}, 
-   3.854893636206251*^9},ExpressionUUID->"837b616b-a086-4641-a208-\
-53ed9c6c1f61"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"CloudObject", "[", 
-   TemplateBox[{
-    "\"https://www.wolframcloud.com/obj/3078297d-1f29-4857-a695-c175449907b3\"\
-", "https://www.wolframcloud.com/obj/3078297d-1f29-4857-a695-c175449907b3"},
-    "HyperlinkURL"], "]"}],
-  CloudObject[
-  "https://www.wolframcloud.com/obj/3078297d-1f29-4857-a695-c175449907b3"],
-  SelectWithContents->True]], "Output",
- CellChangeTimes->{
-  3.8542509848377285`*^9, 3.854251069573821*^9, 3.854251150515544*^9, 
-   3.8542512580952563`*^9, 3.854251328586579*^9, 3.8542513718180847`*^9, {
-   3.8542621995983915`*^9, 3.854262213169312*^9}, 3.854262413641759*^9, 
-   3.8542674973567314`*^9},
- CellLabel->"Out[33]=",ExpressionUUID->"a382551d-2931-411b-9380-40c053ed12b9"]
-}, Open  ]]
+   3.854895661247486*^9}, {3.8551102988493066`*^9, 3.8551103597019978`*^9}, {
+   3.855110424980786*^9, 3.8551104251622906`*^9}, {3.855110526027506*^9, 
+   3.855110527284018*^9}, {3.855110669615265*^9, 3.855110679401879*^9}, {
+   3.855110755280484*^9, 3.855110755605317*^9}, {3.85511091647534*^9, 
+   3.8551109765889077`*^9}, {3.855111037419718*^9, 3.85511104965453*^9}, {
+   3.855111317601692*^9, 3.8551113438206425`*^9}, {3.8551114268805213`*^9, 
+   3.855111453230774*^9}, {3.8551115291235266`*^9, 3.855111550160883*^9}, {
+   3.8551115868307185`*^9, 3.8551116079126425`*^9}, {3.855111669953579*^9, 
+   3.8551116720540104`*^9}, {3.8551117063613305`*^9, 3.855111710511531*^9}, {
+   3.8551117669662437`*^9, 3.855111772041365*^9}, {3.855112830043684*^9, 
+   3.855112846531129*^9}, 3.8551129792286587`*^9, {3.8551130294904585`*^9, 
+   3.8551130492976637`*^9}, {3.8551131045038977`*^9, 3.855113167756732*^9}, {
+   3.8551132043799133`*^9, 3.855113209933015*^9}, {3.855113395200794*^9, 
+   3.855113429318163*^9}, {3.855113517175806*^9, 3.855113518012006*^9}, {
+   3.8551135879028435`*^9, 3.855113592107423*^9}, {3.8551136778620644`*^9, 
+   3.8551137182468824`*^9}, {3.8551138163041077`*^9, 3.85511384854364*^9}, {
+   3.8551138817710595`*^9, 3.855113886514285*^9}, {3.8551139201983447`*^9, 
+   3.855113924844365*^9}, {3.855113957739458*^9, 3.855113958176836*^9}, {
+   3.8551153046744666`*^9, 3.8551153107854176`*^9}, {3.8551160912044992`*^9, 
+   3.855116156001758*^9}, {3.855116253503337*^9, 3.855116271904486*^9}, {
+   3.8551164996379375`*^9, 3.8551165187344956`*^9}},
+ CellLabel->"In[39]:=",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -484,27 +506,6 @@ Cell["Enjoy Your Wolfram Vocabulary Exams", "Subsection",
   3.808570471582305*^9}},ExpressionUUID->"7903bc0b-f06d-4a49-add3-\
 1e98fcfa29c8"],
 
-Cell[BoxData[
- RowBox[{"CloudGet", "@", 
-  InterpretationBox[
-   RowBox[{"CloudObject", "[", 
-    TemplateBox[{
-     "\"https://www.wolframcloud.com/obj/ffabfc78-ed87-494b-8375-a502422f7591\
-\"", "https://www.wolframcloud.com/obj/ffabfc78-ed87-494b-8375-a502422f7591"},
-     "HyperlinkURL"], "]"}],
-   CloudObject[
-   "https://www.wolframcloud.com/obj/ffabfc78-ed87-494b-8375-a502422f7591"],
-   SelectWithContents->True]}]], "Input",
- CellChangeTimes->{{3.854264744701152*^9, 3.8542647563244123`*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"9a8fd652-3d43-4152-9fa9-7bfe309d208f"],
-
-Cell[BoxData["\"\<WolframVocabularyExam[n] gives a exam table which contains \
-n WL-builtin-symbol-like strings as well as their true-false questions.\>\""],\
- "Input",
- CellChangeTimes->{{3.854893636206251*^9, 
-  3.8548936362218733`*^9}},ExpressionUUID->"2b8e5df1-a5a8-4f55-8916-\
-0190627e8a1e"],
-
 Cell[CellGroupData[{
 
 Cell[BoxData[
@@ -513,8 +514,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.8548910191653585`*^9, 3.8548910236739464`*^9}, 
    3.8548936362218733`*^9, {3.8548956065130014`*^9, 3.8548956114337206`*^9}, 
    3.854895756012225*^9},
- CellLabel->
-  "In[168]:=",ExpressionUUID->"0cbd85b1-eb28-4678-877b-c5723f3c791a"],
+ CellLabel->"In[41]:=",ExpressionUUID->"0cbd85b1-eb28-4678-877b-c5723f3c791a"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`data$$ = {
@@ -2143,86 +2143,124 @@ Cell[BoxData[
      Rational[106, 2017], 
      Rational[19, 6051]}, {2, 3, 4, 5, 6}, False}, 1, 
    6051], $CellContext`config$$, $CellContext`prob$$ = 
-  0.41526432371338395`, $CellContext`gen$$, $CellContext`var$$ = {
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2], 
-   Rational[1, 2]}, $CellContext`rec$$ = {1, 0, 0, 1, 0, 0, 0, 0, 1, 
-  1}, $CellContext`ans$$ = Row[{
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0], 
-    RGBColor[1, 1, 0]}], $CellContext`score$$ = 5., $CellContext`grid$$ = 
-  Grid[{{"DiscreteLimit", 
+  0.5781902859318884, $CellContext`gen$$, $CellContext`var$$ = {1, 1, 1, 1, 1,
+   1, 0, 0, 1, 0}, $CellContext`rec$$ = {1, 1, 1, 1, 1, 1, 0, 0, 1, 
+  1}, $CellContext`ans$$ = {
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[0, 1, 0], 
+   RGBColor[1, 0, 0]}, $CellContext`score$$ = 9., $CellContext`grid$$ = Grid[{{
+     Hyperlink[
+     "FisherHypergeometricDistribution", 
+      "paclet:ref/FisherHypergeometricDistribution", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var905], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"PublisherImage", 
+      Dynamic[WLExam`var351], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "CoordinateChartData", "paclet:ref/CoordinateChartData", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var906], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"CepstrogramLimit", 
+      Dynamic[WLExam`var352], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "BernsteinBasis", "paclet:ref/BernsteinBasis", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var907], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"AppendLayer", 
+      Dynamic[WLExam`var353], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "SystemCredentialKey", "paclet:ref/SystemCredentialKey", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var908], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"VersionedFrame", 
+      Dynamic[WLExam`var354], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "ParametricNDSolve", "paclet:ref/ParametricNDSolve", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var909], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"$RogersFrame", 
+      Dynamic[WLExam`var355], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "WeierstrassEta3", "paclet:ref/WeierstrassEta3", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var910], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"HeaderOut", 
+      Dynamic[WLExam`var356], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"VertexWord", 
      SetterBar[
-      Dynamic[WLExam`var911], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"LearnBoxes", 
+      Dynamic[WLExam`var357], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"CloudMarginsMatrix", 
      SetterBar[
-      Dynamic[WLExam`var912], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"ManhattanDistance", 
+      Dynamic[WLExam`var358], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "LegendLabel", "paclet:ref/LegendLabel", BaseStyle -> GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var913], {
-      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {"NotebookRead", 
+      Dynamic[WLExam`var359], {
+      Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}, {
+     Hyperlink[
+     "$DistributedContexts", "paclet:ref/$DistributedContexts", BaseStyle -> 
+      GrayLevel[1]], 
      SetterBar[
-      Dynamic[WLExam`var914], {
+      Dynamic[WLExam`var360], {
       Rational[1, 2] -> Null, 1 -> True, 0 -> False}]}}, Frame -> All, 
-   Alignment -> Left], $CellContext`state$$ = True}, 
+   Alignment -> Left, Background -> {None, {
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[0, 1, 0], 
+      RGBColor[1, 0, 0]}}], $CellContext`state$$ = False}, 
   TemplateBox[{
     PanelBox[
      TagBox[
       GridBox[{{
          DynamicBox[
-          ToBoxes[$CellContext`grid$$, StandardForm]], 
+          ToBoxes[$CellContext`grid$$, StandardForm], 
+          ImageSizeCache -> {
+           239., {126.17529296874997`, 130.82470703124997`}}], 
          DynamicBox[
           ToBoxes[
-           Button["Submit", $CellContext`ans$$ = Row[
-               ReplaceAll[
-                Abs[$CellContext`var$$ - $CellContext`rec$$], {
-                0 -> Green, 1/2 -> Yellow, 1 -> Red}]]; $CellContext`score$$ = 
+           Button["Submit", $CellContext`ans$$ = ReplaceAll[
+               Abs[$CellContext`var$$ - $CellContext`rec$$], {
+               0 -> Green, 1/2 -> Yellow, 1 -> Red}]; $CellContext`score$$ = 
              N[10 - Total[
                 
                 Abs[$CellContext`var$$ - $CellContext`rec$$]]]; \
-$CellContext`state$$ = False, Enabled -> $CellContext`state$$], 
-           StandardForm]]}, {
+$CellContext`grid$$ = 
+             MapAt[Hyperlink[#, "paclet:ref/" <> #, BaseStyle -> White]& , 
+               
+               Append[$CellContext`grid$$, 
+                Background -> {None, $CellContext`ans$$}], 
+               Thread[{1, 
+                 Pick[
+                  Range[10], $CellContext`rec$$, 1], 
+                 1}]]; $CellContext`state$$ = False, 
+            Enabled -> $CellContext`state$$], StandardForm], 
+          ImageSizeCache -> {41., {9.17529296875, 13.82470703125}}]}, {
          DynamicBox[
           ToBoxes[
            
-           Grid[{{"Your Answer:\t", $CellContext`ans$$}, {
-             "Your Score:\t", $CellContext`score$$}}], StandardForm]], 
+           BarChart[{$CellContext`score$$}, Axes -> {False, True}, BarOrigin -> 
+            Left, PlotRange -> {0, 10}, PlotLabel -> "Your Score", 
+            AspectRatio -> 0.1, ChartElementFunction -> 
+            ChartElementDataFunction[
+             "GradientScaleRectangle", "ColorScheme" -> "TemperatureMap"]], 
+           StandardForm], ImageSizeCache -> {180., {22., 24.82694915256093}}], 
          ButtonBox[
-         "\"Try Again!\"", ButtonFunction :> $CellContext`config$$[], 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]}}, AutoDelete -> False, 
+         "\"Try Again!\"", Appearance -> Automatic, 
+          ButtonFunction :> $CellContext`config$$[], Evaluator -> Automatic, 
+          Method -> "Preemptive"]}}, AutoDelete -> False, 
        GridBoxItemSize -> {
         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]], 
     TemplateBox[{
@@ -2266,10 +2304,9 @@ $CellContext`state$$ = False, Enabled -> $CellContext`state$$],
         Switch["Hard", "Simple", $CellContext`prob$$ = 1/2, 
           "Hard", $CellContext`prob$$ = RandomReal[]]; 
         Remove["WLExam`var*"]; $CellContext`var$$ = Table[
-           Unique["WLExam`var"], 
-           10]; $CellContext`rec$$ = {}; $CellContext`ans$$ = Row[
-           Table[Yellow, 10]]; $CellContext`score$$ = 
-         10 0.5; $CellContext`grid$$ = Grid[
+           Unique["WLExam`var"], 10]; $CellContext`rec$$ = {}; 
+        Clear[$CellContext`ans$$, $CellContext`score$$]; $CellContext`grid$$ = 
+         Grid[
            Map[{
              $CellContext`gen$$[], 
              SetterBar[
@@ -2315,9 +2352,18 @@ $CellContext`candi]]}}}]], "Output",
    3.8548949346261024`*^9, 3.8548950301321497`*^9, 3.8548951835188346`*^9, 
    3.8548952242340174`*^9, 3.854895292298834*^9, 3.854895559729704*^9, {
    3.8548956003957067`*^9, 3.85489562743974*^9}, {3.8548956714347615`*^9, 
-   3.854895690353623*^9}, {3.8548957455442963`*^9, 3.8548957587145195`*^9}},
- CellLabel->
-  "Out[168]=",ExpressionUUID->"4ab4554d-5318-4a89-86e9-d4a8a2826db4"]
+   3.854895690353623*^9}, {3.8548957455442963`*^9, 3.8548957587145195`*^9}, 
+   3.855108258879905*^9, 3.855110396806848*^9, 3.8551104357220182`*^9, 
+   3.8551105348540955`*^9, 3.855110770203546*^9, 3.8551113289726057`*^9, {
+   3.8551114363584356`*^9, 3.855111462535028*^9}, 3.855111561128642*^9, 
+   3.8551116155396605`*^9, 3.855111687952268*^9, 3.8551117231696477`*^9, 
+   3.8551117795179715`*^9, 3.855112866088781*^9, 3.8551129870287323`*^9, {
+   3.8551130381968374`*^9, 3.8551130542933583`*^9}, 3.8551131169798756`*^9, {
+   3.855113407326731*^9, 3.855113434590818*^9}, 3.8551135230641823`*^9, 
+   3.855113683486373*^9, 3.855113861953905*^9, 3.855113963253558*^9, 
+   3.8551153174243402`*^9, 3.855116108136544*^9, 3.8551161641444397`*^9, {
+   3.8551162608298187`*^9, 3.8551162779888787`*^9}, 3.855116524087908*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"e4a904b8-fdc2-4487-a80f-ba198c76600e"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -2341,19 +2387,13 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 243, 4, 54, "Subsection",ExpressionUUID->"138606e9-f7ea-4374-8e47-25a4bdf14ec1"],
-Cell[826, 28, 23347, 417, 1855, "Input",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"],
-Cell[CellGroupData[{
-Cell[24198, 449, 410, 8, 28, "Input",ExpressionUUID->"837b616b-a086-4641-a208-53ed9c6c1f61"],
-Cell[24611, 459, 743, 15, 35, "Output",ExpressionUUID->"a382551d-2931-411b-9380-40c053ed12b9"]
-}, Open  ]]
+Cell[826, 28, 26637, 469, 2065, "Input",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25403, 480, 233, 4, 54, "Subsection",ExpressionUUID->"7903bc0b-f06d-4a49-add3-1e98fcfa29c8"],
-Cell[25639, 486, 579, 12, 32, "Input",ExpressionUUID->"9a8fd652-3d43-4152-9fa9-7bfe309d208f"],
-Cell[26221, 500, 296, 5, 48, InheritFromParent,ExpressionUUID->"2b8e5df1-a5a8-4f55-8916-0190627e8a1e"],
+Cell[27500, 502, 233, 4, 54, "Subsection",ExpressionUUID->"7903bc0b-f06d-4a49-add3-1e98fcfa29c8"],
 Cell[CellGroupData[{
-Cell[26542, 509, 366, 7, 28, "Input",ExpressionUUID->"0cbd85b1-eb28-4678-877b-c5723f3c791a"],
-Cell[26911, 518, 122128, 1801, 381, "Output",ExpressionUUID->"4ab4554d-5318-4a89-86e9-d4a8a2826db4"]
+Cell[27758, 510, 362, 6, 28, "Input",ExpressionUUID->"0cbd85b1-eb28-4678-877b-c5723f3c791a"],
+Cell[28123, 518, 124446, 1847, 380, "Output",ExpressionUUID->"e4a904b8-fdc2-4487-a80f-ba198c76600e"]
 }, Open  ]]
 }, Open  ]]
 }
