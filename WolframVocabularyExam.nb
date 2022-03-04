@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    153461,       2394]
-NotebookOptionsPosition[    152597,       2369]
-NotebookOutlinePosition[    153015,       2386]
-CellTagsIndexPosition[    152972,       2383]
+NotebookDataLength[    154236,       2410]
+NotebookOptionsPosition[    153372,       2385]
+NotebookOutlinePosition[    153790,       2402]
+CellTagsIndexPosition[    153747,       2399]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,8 +29,18 @@ Cell["Wolfram Vocabulary Exam Function Definition", "Subsection",
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"WolframVocabularyExam", "[", 
-    RowBox[{"n_", ",", "mode_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"WolframVocabularyExam", "[", 
+     RowBox[{
+      RowBox[{"n_", ":", "10"}], ",", 
+      RowBox[{"mode_", ":", "\"\<Simple\>\""}]}], "]"}], "/;", 
+    RowBox[{
+     RowBox[{"n", "\[Element]", "PositiveIntegers"}], "&&", 
+     RowBox[{"MemberQ", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Simple\>\"", ",", "\"\<Hard\>\""}], "}"}], ",", "mode"}],
+       "]"}]}]}], ":=", "\[IndentingNewLine]", 
    RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"{", "\[IndentingNewLine]", 
@@ -494,8 +504,14 @@ WL-builtin-symbol-like strings as well as their true-false questions.\>\""}],
    3.855113924844365*^9}, {3.855113957739458*^9, 3.855113958176836*^9}, {
    3.8551153046744666`*^9, 3.8551153107854176`*^9}, {3.8551160912044992`*^9, 
    3.855116156001758*^9}, {3.855116253503337*^9, 3.855116271904486*^9}, {
-   3.8551164996379375`*^9, 3.8551165187344956`*^9}},
- CellLabel->"In[39]:=",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"]
+   3.8551164996379375`*^9, 3.8551165187344956`*^9}, {3.855365665157996*^9, 
+   3.85536570973018*^9}, {3.855365741016384*^9, 3.855365768851491*^9}, {
+   3.8553661360837135`*^9, 3.8553662163229384`*^9}, {3.8553676720677414`*^9, 
+   3.855367715520196*^9}, 3.855367868123608*^9, {3.855368120295827*^9, 
+   3.8553681610168476`*^9}, {3.855368897119839*^9, 3.855368923313096*^9}, {
+   3.8553689609831057`*^9, 3.8553689769597845`*^9}, {3.8553690508412294`*^9, 
+   3.855369051247332*^9}, 3.855369096142209*^9},
+ CellLabel->"In[10]:=",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2387,13 +2403,13 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 243, 4, 54, "Subsection",ExpressionUUID->"138606e9-f7ea-4374-8e47-25a4bdf14ec1"],
-Cell[826, 28, 26637, 469, 2065, "Input",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"]
+Cell[826, 28, 27412, 485, 2065, "Input",ExpressionUUID->"fdbaf36e-628b-437a-b461-11b246b27301"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[27500, 502, 233, 4, 54, "Subsection",ExpressionUUID->"7903bc0b-f06d-4a49-add3-1e98fcfa29c8"],
+Cell[28275, 518, 233, 4, 54, "Subsection",ExpressionUUID->"7903bc0b-f06d-4a49-add3-1e98fcfa29c8"],
 Cell[CellGroupData[{
-Cell[27758, 510, 362, 6, 28, "Input",ExpressionUUID->"0cbd85b1-eb28-4678-877b-c5723f3c791a"],
-Cell[28123, 518, 124446, 1847, 380, "Output",ExpressionUUID->"e4a904b8-fdc2-4487-a80f-ba198c76600e"]
+Cell[28533, 526, 362, 6, 28, "Input",ExpressionUUID->"0cbd85b1-eb28-4678-877b-c5723f3c791a"],
+Cell[28898, 534, 124446, 1847, 380, "Output",ExpressionUUID->"e4a904b8-fdc2-4487-a80f-ba198c76600e"]
 }, Open  ]]
 }, Open  ]]
 }
